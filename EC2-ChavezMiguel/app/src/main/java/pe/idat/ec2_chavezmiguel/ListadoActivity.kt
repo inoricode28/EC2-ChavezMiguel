@@ -3,7 +3,6 @@ package pe.idat.ec2_chavezmiguel
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -18,17 +17,17 @@ data class Libro(val titulo: String, val descripcion: String, val fechaPublicaci
 @Composable
 fun listado() {
     var mostrarLista by remember { mutableStateOf(false) }
-    val listaDeTests = listOf(
-        Libro("Libro de Medicina 1", "Descripción del libro 1", "01/01/2021"),
-        Libro("Libro de Medicina 2", "Descripción del libro 2", "02/02/2022"),
-        Libro("Libro de Medicina 3", "Descripción del libro 3", "03/03/2023"),
-        Libro("Libro de Medicina 4", "Descripción del libro 4", "04/04/2024"),
-        Libro("Libro de Medicina 5", "Descripción del libro 5", "05/05/2025"),
-        Libro("Libro de Medicina 6", "Descripción del libro 6", "06/06/2026"),
-        Libro("Libro de Medicina 7", "Descripción del libro 7", "07/07/2027"),
-        Libro("Libro de Medicina 8", "Descripción del libro 8", "08/08/2028"),
-        Libro("Libro de Medicina 9", "Descripción del libro 9", "09/09/2029"),
-        Libro("Libro de Medicina 10", "Descripción del libro 10", "10/10/2030")
+    val listaDeLibros = listOf(
+        Libro("Principios de Medicina Interna", "Un libro completo sobre los fundamentos de la medicina interna.", "01/01/2021"),
+        Libro("Medicina Clínica", "Una guía práctica para el diagnóstico y tratamiento de enfermedades clínicas.", "02/02/2022"),
+        Libro("Anatomía Humana", "Descripción detallada de la anatomía del cuerpo humano.", "03/03/2023"),
+        Libro("Fisiología Médica", "Explicación de los procesos fisiológicos en el cuerpo humano.", "04/04/2024"),
+        Libro("Farmacología Básica", "Información sobre los principales medicamentos y su uso.", "05/05/2025"),
+        Libro("Microbiología Médica", "Estudio de los microorganismos y su relación con la salud humana.", "06/06/2026"),
+        Libro("Patología General", "Análisis de las enfermedades y sus causas.", "07/07/2027"),
+        Libro("Bioquímica Médica", "Relación entre la bioquímica y las funciones corporales.", "08/08/2028"),
+        Libro("Diagnóstico por Imágenes", "Guía sobre el uso de técnicas de imagen en el diagnóstico médico.", "09/09/2029"),
+        Libro("Medicina Preventiva", "Enfoques y estrategias para la prevención de enfermedades.", "10/10/2030")
     )
 
     Column(modifier = Modifier.padding(40.dp)) {
@@ -40,8 +39,8 @@ fun listado() {
 
         if (mostrarLista) {
             LazyColumn {
-                items(listaDeTests) { test ->
-                    TestCard(test)
+                items(listaDeLibros) { libro ->
+                    LibroCard(libro)
                 }
             }
         }
@@ -49,16 +48,16 @@ fun listado() {
 }
 
 @Composable
-fun TestCard(test: Libro) {
+fun LibroCard(libro: Libro) {
     Card(modifier = Modifier
         .padding(8.dp)
         .fillMaxWidth()){
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = test.titulo, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            Text(text = libro.titulo, fontSize = 20.sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = test.descripcion, fontSize = 16.sp)
+            Text(text = libro.descripcion, fontSize = 16.sp)
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Fecha de Publicación: ${test.fechaPublicacion}", fontSize = 14.sp)
+            Text(text = "Fecha de Publicación: ${libro.fechaPublicacion}", fontSize = 14.sp)
         }
     }
 }
