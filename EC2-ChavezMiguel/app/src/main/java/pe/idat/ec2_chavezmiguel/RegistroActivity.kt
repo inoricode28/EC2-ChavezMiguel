@@ -124,5 +124,11 @@ fun registro(navController: NavController) {
             label = { Text("Ingrese otro hobby") }
         )
 
-        
+        Button(
+            onClick = { navController.navigate("menu") },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Acceder")
+        }
+    }
 }
