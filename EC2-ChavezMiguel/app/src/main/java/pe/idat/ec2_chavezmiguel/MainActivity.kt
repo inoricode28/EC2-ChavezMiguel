@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     registro(navController)
                 }
                 composable("pregunta#2") {
-                    // listado()
+                     listado()
                 }
             }
         }
